@@ -1,2 +1,2 @@
-# Cloud-Hosted-Bank-Analytics-and-Reporting
-"CloudBank Analytics" is a comprehensive cloud-based banking data analytics and reporting system designed to streamline financial data processing, analysis, and visualization.
+# Cloud-hosted Banking Data Analytics and Reporting System on AWS
+"CloudBank Analytics" is a comprehensive cloud-based banking data analytics and reporting system designed to streamline financial data processing, analysis, and visualization. The project leverages Amazon Web Services (AWS) for robust and scalable infrastructure, utilizing Amazon RDS for secure and efficient data storage, AWS Elastic Beanstalk for reliable web application hosting, and AWS Lambda for automated data processing and report generation.
