@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/dashboardCSS.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/dashboardResponsive.css') }}">
+</head>
+
+<body>
+
+    <!-- Header Section -->
+    <header>
+
+        <div class="logosec">
+            <div class="logo">BankX</div>
+            <img src="https://via.placeholder.com/50x50?text=Logo" class="icn menuicn" id="menuicn" alt="menu-icon">
+        </div>
+
+        <div class="searchbar">
+            <input type="text" placeholder="Search Transactions">
+            <div class="searchbtn">
+                <img src="https://via.placeholder.com/20x20?text=Search" class="icn srchicn" alt="search-icon">
+            </div>
+        </div>
+
+        <div class="message">
+            <div class="circle"></div>
+            <img src="https://via.placeholder.com/30x30?text=Bell" class="icn" alt="notification-icon">
+            <div class="dp">
+                <img src="https://via.placeholder.com/40x40?text=DP" class="dpicn" alt="profile-pic">
+            </div>
+        </div>
+
+    </header>
+
+    <div class="main-container">
+        <!-- Sidebar Navigation -->
+        <div class="navcontainer">
+            <nav class="nav">
+                <div class="nav-upper-options">
+                    <div class="nav-option option1">
+                        <img src="https://via.placeholder.com/30x30?text=Home" class="nav-img" alt="home">
+                        <h3>Home</h3>
+                    </div>
+
+                    <div class="option2 nav-option">
+                        <img src="https://via.placeholder.com/30x30?text=Accounts" class="nav-img" alt="accounts">
+                        <h3>Accounts</h3>
+                    </div>
+
+                    <div class="nav-option option3">
+                        <img src="https://via.placeholder.com/30x30?text=Transactions" class="nav-img" alt="transactions">
+                        <h3>Transactions</h3>
+                    </div>
+
+                    <div class="nav-option option4">
+                        <img src="https://via.placeholder.com/30x30?text=Loans" class="nav-img" alt="loans">
+                        <h3>Loans</h3>
+                    </div>
+
+                    <div class="nav-option option5">
+                        <img src="https://via.placeholder.com/30x30?text=Cards" class="nav-img" alt="cards">
+                        <h3>Cards</h3>
+                    </div>
+
+                    <div class="nav-option option6">
+                        <img src="https://via.placeholder.com/30x30?text=Settings" class="nav-img" alt="settings">
+                        <h3>Settings</h3>
+                    </div>
+
+                    <div class="nav-option logout">
+                        <img src="https://via.placeholder.com/30x30?text=Logout" class="nav-img" alt="logout">
+                        <h3>Logout</h3>
+                    </div>
+
+                </div>
+            </nav>
+        </div>
+
+        <!-- Main Content Section -->
+        <div class="main">
+
+            <div class="overview-container">
+                <h2>Account Overview</h2>
+                <div class="account-info">
+                    <div class="info-box balance">
+                        <h2 class="value">$12,350.50</h2>
+                        <h3>Current Balance</h3>
+                    </div>
+
+                    <div class="info-box recent-transactions">
+                        <h2 class="value">34</h2>
+                        <h3>Recent Transactions</h3>
+                    </div>
+
+                    <div class="info-box loans">
+                        <h2 class="value">$5,000</h2>
+                        <h3>Loans Pending</h3>
+                    </div>
+
+                    <div class="info-box cards">
+                        <h2 class="value">3</h2>
+                        <h3>Credit Cards</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Transactions -->
+            <div class="transactions-container">
+                <div class="transactions-header">
+                    <h1>Recent Transactions</h1>
+                    <button class="view">View All</button>
+                </div>
+
+                <div class="transactions-body">
+                    <div class="transaction-header">
+                        <h3>Transaction ID</h3>
+                        <h3>Amount</h3>
+                        <h3>Date</h3>
+                        <h3>Status</h3>
+                    </div>
+
+                    <div class="transaction-item">
+                        <h3>#12345</h3>
+                        <h3>$200</h3>
+                        <h3>01/11/2024</h3>
+                        <h3 class="label-success">Completed</h3>
+                    </div>
+
+                    <div class="transaction-item">
+                        <h3>#12346</h3>
+                        <h3>$50</h3>
+                        <h3>30/10/2024</h3>
+                        <h3 class="label-failed">Failed</h3>
+                    </div>
+
+                    <div class="transaction-item">
+                        <h3>#12347</h3>
+                        <h3>$500</h3>
+                        <h3>29/10/2024</h3>
+                        <h3 class="label-success">Completed</h3>
+                    </div>
+
+                    <div class="transaction-item">
+                        <h3>#12348</h3>
+                        <h3>$120</h3>
+                        <h3>28/10/2024</h3>
+                        <h3 class="label-pending">Pending</h3>
+                    </div>
+
+                    <div class="transaction-item">
+                        <h3>#12349</h3>
+                        <h3>$75</h3>
+                        <h3>27/10/2024</h3>
+                        <h3 class="label-success">Completed</h3>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="{{ url_for('static',filename='assets/js/dashboardJS.js') }}"></script>
+</body>
+
+</html>
