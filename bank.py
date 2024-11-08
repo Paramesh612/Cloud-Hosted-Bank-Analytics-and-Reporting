@@ -1,25 +1,35 @@
-#from flask import Flask, render_template, request, session
 from flask import *
-import mysql.connector
+import mysql.connector 
 from datetime import datetime
-
-
-
 
 
 app= Flask(__name__)
 app.secret_key = "your_secret_key"
 
-
-# Database config
+    
+# Database config #---------------------------------------------------------------------------------------------------------
 db_config = {
     'host': 'localhost', #bank.crqmssgockvo.ap-south-1.rds.amazonaws.com
-    'user': '',
+    'user': 'root',
     'password': '',
-    'database': 'bank'
+    'database': 'AWS_Bank'
 }
 
 cnxpool = mysql.connector.pooling.MySQLConnectionPool(pool_name="mypool",pool_size=5,**db_config)
+
+def get_db_connection():
+    try:
+        return cnxpool.get_connection()
+    except mysql.connector.Error as err:
+        print(f"Error: {err}")
+        return None
+
+#-------------------------------------------------------------------------------------------------------------------------------------
+
+@app.route('/login')
+def renderLogin():
+    return render_template("login.html")
+
 
 
 @app.route('/')
@@ -30,17 +40,8 @@ def renderHome():
 def renderRegister():
     return render_template("register.html")
 
-@app.route('/login')
-def renderLogin():
-    return render_template("login.html")
 
 
-def get_db_connection():
-    try:
-        return cnxpool.get_connection()
-    except mysql.connector.Error as err:
-        print(f"Error: {err}")
-        return None
 
 @app.route("/test-db-connection")
 def test_db_connection():
