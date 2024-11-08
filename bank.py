@@ -14,9 +14,9 @@ app.secret_key = "your_secret_key"
 # Database config
 db_config = {
     'host': 'localhost', #bank.crqmssgockvo.ap-south-1.rds.amazonaws.com
-    'user': '',
+    'user': 'root',
     'password': '',
-    'database': 'bank'
+    'database': 'AWS_bank'
 }
 
 cnxpool = mysql.connector.pooling.MySQLConnectionPool(pool_name="mypool",pool_size=5,**db_config)
