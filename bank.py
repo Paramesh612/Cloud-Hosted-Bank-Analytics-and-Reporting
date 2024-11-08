@@ -1,9 +1,26 @@
 #from flask import Flask, render_template, request, session
 from flask import *
 import mysql.connector
+from datetime import datetime
+
+
+
 
 
 app= Flask(__name__)
+app.secret_key = "your_secret_key"
+
+
+# Database config
+db_config = {
+    'host': 'localhost', #bank.crqmssgockvo.ap-south-1.rds.amazonaws.com
+    'user': '',
+    'password': '',
+    'database': 'bank'
+}
+
+cnxpool = mysql.connector.pooling.MySQLConnectionPool(pool_name="mypool",pool_size=5,**db_config)
+
 
 @app.route('/')
 def renderHome():
@@ -18,18 +35,34 @@ def renderLogin():
     return render_template("login.html")
 
 
-@app.route('/dashboard')
-def renderDashboard():
-    return render_template("dashboard.html")
+def get_db_connection():
+    try:
+        return cnxpool.get_connection()
+    except mysql.connector.Error as err:
+        print(f"Error: {err}")
+        return None
+
+@app.route("/test-db-connection")
+def test_db_connection():
+    try:
+        conn = get_db_connection()
+        cursor = conn.cursor()
+        cursor.execute("SELECT DATABASE() ;")
+        db_name = cursor. fetchone()
+        cursor.close()
+        conn. close()
+        return f"Connected to the database: {db_name[0]}"
+    except mysql.connector.Error as err:
+        return f"Error: {err}"
+
+    
 
 
 
-if __name__=='__main__':
-    app.run(debug=True) 
+
 
 
 @app.route("/dashboard")
-
 def dashboard():
 
     user_data = session.get('user')
@@ -51,10 +84,10 @@ def dashboard():
         conn.close()
 
         return render_template("dashboard.html", user=user)
-
     else:
+          return redirect("/login")
 
-        return redirect(url_for('login'))
+
 
    
 
@@ -109,3 +142,7 @@ def deposit():
     else:
 
         return redirect(url_for('login'))
+    
+
+if __name__=='__main__':
+    app.run(debug=True) 
