@@ -67,7 +67,9 @@ def validateLogin():
         return redirect("/")
 
 
-@app.route('/')
+
+
+@app.route('/') 
 def renderHome():
     return render_template("index2.html")
 
