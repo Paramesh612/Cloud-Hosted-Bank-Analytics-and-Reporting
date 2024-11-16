@@ -7,7 +7,7 @@ from datetime import datetime
 app= Flask(__name__)
 app.secret_key = "your_secret_key"
 
-    
+
 # Database config #---------------------------------------------------------------------------------------------------------
 db_config = {
     'host': 'localhost', #bank.crqmssgockvo.ap-south-1.rds.amazonaws.com
@@ -27,9 +27,61 @@ def get_db_connection():
 
 #-------------------------------------------------------------------------------------------------------------------------------------
 
+#--REGISTER------------------------------------------------------------------------------------------------------------------------------
+
+
+@app.route('/register')
+def renderRegister():
+    return render_template("register.html")
+
+
+
+# @app.route('/loginValidate',methods=['POST'])
+# def validateLogin():
+#     email=request.form['email']
+#     password=request.form['password']
+
+#     if not email or not password:
+#         flash("Please Enter email and password both",'error')
+#         return redirect("/login")
+    
+#     user = check_credentials(email, password)
+    
+#     if user:
+#         flash("Login Successful",'success')
+#         return redirect("/dashboard")
+#     else:
+#         flash("Invalid credentials, please try again", 'error')
+#         return redirect("/")
+
+
+@app.route('/registeringUser',methods=['POST'])
+def getDataFromForm():   
+    fn = request.form['firstname']
+    ln = request.form['lastname']
+    email = request.form['email']
+    aadhar = request.form['aadhar']
+    password = request.form['password']
+    address = request.form['address']
+
+    conn = get_db_connection()
+
+    cursor = conn.cursor()
+    cursor.execute("Insert into users   ")
+
+
+    return ":"
+
+
+#----------------------------------------------------------------------------------------------------------------------------------------
+
+# NEXT SECTION
+
 #--LOGIN------------------------------------------------------------------------------------------------------------------------------
 
+
 @app.route('/login')
+
 def renderLogin():
     return render_template("login.html")
 
@@ -66,16 +118,13 @@ def validateLogin():
         flash("Invalid credentials, please try again", 'error')
         return redirect("/")
 
+#-------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-
-@app.route('/') 
+@app.route('/')
 def renderHome():
     return render_template("index2.html")
 
-@app.route('/register')
-def renderRegister():
-    return render_template("register.html")
 
 
 @app.route("/test-db-connection")
