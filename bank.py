@@ -119,11 +119,30 @@ def validateLogin():
         return redirect("/")
 
 #-------------------------------------------------------------------------------------------------------------------------------------------------
+    
 
 
+
+#--------------------CONTACT---------------------------------------------------
+
+@app.route('/contact')
+def renderContact():
+    return render_template("contact.html")
+
+#------------------Service---------------------------------------------------
+
+@app.route('/services')
+def renderService():
+    return render_template("services.html")
+
+
+
+#-----------------Main-----------------
 @app.route('/')
 def renderHome():
     return render_template("index2.html")
+
+
 
 
 

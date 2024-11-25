@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bank Services</title>
+  <style>
+   
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+      overflow-x: hidden;
+    }
+    .container {
+      width: 80%;
+      margin: 0 auto;
+    }
+
+    
+    .header {
+      background-color: #004080;
+      color: #fff;
+      padding: 1rem 0;
+      text-align: center;
+    }
+    .header h1 {
+      font-size: 2.5rem;
+    }
+    .header p {
+      font-size: 1.2rem;
+      margin-top: 0.5rem;
+    }
+
+   
+    .services {
+      margin: 2rem 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
+    .service-card {
+      background: #fff;
+      width: 300px;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.4s, box-shadow 0.4s;
+    }
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+    .service-card .icon {
+      font-size: 3rem;
+      color: #004080;
+      text-align: center;
+      margin-bottom: 1rem;
+      animation: icon-bounce 1.5s infinite ease-in-out;
+    }
+    .service-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: #004080;
+    }
+    .service-card p {
+      font-size: 1rem;
+      color: #555;
+      line-height: 1.5;
+    }
+    .service-card:hover p {
+      color: #333;
+    }
+
+  
+    @keyframes icon-bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    @keyframes slide-in {
+      from {
+        opacity: 0;
+        transform: translateX(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+  
+    .cta {
+      text-align: center;
+      padding: 3rem 0;
+      background-color: #004080;
+      color: #fff;
+    }
+    .cta h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      animation: slide-in 1s ease-in-out;
+    }
+    .cta p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      animation: slide-in 1.2s ease-in-out;
+    }
+    .cta .btn {
+      background-color: #ffd700;
+      color: #004080;
+      padding: 0.8rem 2rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      text-transform: uppercase;
+      font-weight: bold;
+      transition: background-color 0.4s, transform 0.4s;
+    }
+    .cta .btn:hover {
+      background-color: #ffc107;
+      transform: scale(1.1);
+    }
+
+    
+    .footer {
+      background-color: #004080;
+      color: #fff;
+      text-align: center;
+      padding: 1rem 0;
+      margin-top: 2rem;
+    }
+  </style>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <header class="header">
+    <h1>Our Bank Services</h1>
+    <p>Discover a wide range of financial services tailored just for you.</p>
+  </header>
+
+  <main class="container">
+    <section class="services">
+      <div class="service-card">
+        <div class="icon"><i class="fas fa-piggy-bank"></i></div>
+        <h3>Savings Account</h3>
+        <p>Secure your future with our high-interest savings account. Enjoy the freedom to save and grow your money.</p>
+      </div>
+      <div class="service-card">
+        <div class="icon"><i class="fas fa-credit-card"></i></div>
+        <h3>Credit Cards</h3>
+        <p>Choose from a variety of credit cards with exciting rewards, cashback offers, and low-interest rates.</p>
+      </div>
+      <div class="service-card">
+        <div class="icon"><i class="fas fa-home"></i></div>
+        <h3>Home Loans</h3>
+        <p>Make your dream home a reality with flexible home loan options and competitive interest rates.</p>
+      </div>
+      <div class="service-card">
+        <div class="icon"><i class="fas fa-briefcase"></i></div>
+        <h3>Business Banking</h3>
+        <p>Empower your business with tailored banking solutions, expert advice, and financial tools.</p>
+      </div>
+      <div class="service-card">
+        <div class="icon"><i class="fas fa-car"></i></div>
+        <h3>Vehicle Loans</h3>
+        <p>Hit the road with our vehicle loans offering easy EMIs and minimal documentation.</p>
+      </div>
+      <div class="service-card">
+        <div class="icon"><i class="fas fa-coins"></i></div>
+        <h3>Investments</h3>
+        <p>Grow your wealth with expert investment options like mutual funds, bonds, and fixed deposits.</p>
+      </div>
+    </section>
+
+    <section class="cta">
+      <h2>Ready to Experience Banking Like Never Before?</h2>
+      <p>Join us today and take your financial journey to the next level.</p>
+      <button class="btn">Get Started</button>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© 2024 Grand Bank. All Rights Reserved.</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Support Page</title>
+  <style>
+    /* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f9;
+      color: #333;
+    }
+    .container {
+      width: 80%;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    .header {
+      background-color: #002e5d;
+      color: #fff;
+      padding: 2rem 0;
+      text-align: center;
+    }
+    .header h1 {
+      font-size: 2.5rem;
+    }
+    .header p {
+      font-size: 1.2rem;
+      margin-top: 0.5rem;
+    }
+
+    /* Support Section */
+    .support {
+      margin: 2rem 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: space-between;
+    }
+    .contact-form {
+      flex: 1;
+      min-width: 300px;
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .contact-form h2 {
+      font-size: 1.8rem;
+      color: #002e5d;
+      margin-bottom: 1rem;
+    }
+    .contact-form label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: bold;
+      color: #555;
+    }
+    .contact-form input, 
+    .contact-form textarea, 
+    .contact-form button {
+      width: 100%;
+      padding: 0.8rem;
+      margin-top: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+      color: #333;
+    }
+    .contact-form button {
+      background-color: #ffd700;
+      color: #002e5d;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out, transform 0.3s;
+    }
+    .contact-form button:hover {
+      background-color: #ffc107;
+      transform: scale(1.05);
+    }
+
+    /* FAQs */
+    .faq-section {
+      flex: 1;
+      min-width: 300px;
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .faq-section h2 {
+      font-size: 1.8rem;
+      color: #002e5d;
+      margin-bottom: 1rem;
+    }
+    .faq {
+      margin-top: 1rem;
+      border-bottom: 1px solid #ccc;
+      padding: 0.8rem 0;
+      cursor: pointer;
+      position: relative;
+      transition: all 0.3s;
+    }
+    .faq:hover {
+      color: #002e5d;
+    }
+    .faq span {
+      font-size: 1.1rem;
+      font-weight: bold;
+    }
+    .faq-content {
+      display: none;
+      padding: 0.5rem 0;
+      font-size: 0.95rem;
+      color: #555;
+      transition: max-height 0.3s ease-in-out;
+    }
+    .faq.active .faq-content {
+      display: block;
+    }
+
+    /* Call-to-Action */
+    .cta {
+      text-align: center;
+      padding: 3rem 0;
+      background-color: #002e5d;
+      color: #fff;
+      margin-top: 2rem;
+    }
+    .cta h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      animation: fade-in 1s ease-in-out;
+    }
+    .cta p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      animation: fade-in 1.2s ease-in-out;
+    }
+    .cta .btn {
+      background-color: #ffd700;
+      color: #002e5d;
+      padding: 0.8rem 2rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.4s, transform 0.4s;
+    }
+    .cta .btn:hover {
+      background-color: #ffc107;
+      transform: scale(1.1);
+    }
+
+    /* Keyframe Animations */
+    @keyframes fade-in {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* Footer */
+    .footer {
+      background-color: #002e5d;
+      color: #fff;
+      text-align: center;
+      padding: 1rem 0;
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <h1>Support Center</h1>
+    <p>We’re here to help you with all your banking needs.</p>
+  </header>
+
+  <main class="container">
+    <section class="support">
+      <!-- Contact Form -->
+      <div class="contact-form">
+        <h2>Contact Us</h2>
+        <form>
+          <label for="name">Full Name</label>
+          <input type="text" id="name" placeholder="Enter your name" required>
+          
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="Enter your email" required>
+          
+          <label for="message">Message</label>
+          <textarea id="message" rows="5" placeholder="Write your message" required></textarea>
+          
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+
+      <!-- FAQs -->
+      <div class="faq-section">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq">
+          <span>How can I reset my account password?</span>
+          <div class="faq-content">You can reset your password by clicking the "Forgot Password" link on the login page.</div>
+        </div>
+        <div class="faq">
+          <span>What are the bank's working hours?</span>
+          <div class="faq-content">Our branches are open from 9:00 AM to 5:00 PM, Monday to Saturday.</div>
+        </div>
+        <div class="faq">
+          <span>How do I check my account balance?</span>
+          <div class="faq-content">You can check your balance via online banking or by visiting your nearest branch.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <h2>Need Immediate Assistance?</h2>
+      <p>Call us at 1-800-BANK-SUPPORT or visit our nearest branch.</p>
+      <button class="btn">Contact Now</button>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© 2024 Grand Bank Support. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    // Toggle FAQ visibility
+    document.querySelectorAll('.faq').forEach(faq => {
+      faq.addEventListener('click', () => {
+        faq.classList.toggle('active');
+      });
+    });
+  </script>
+</body>
+</html>

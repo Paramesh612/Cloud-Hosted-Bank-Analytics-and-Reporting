@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bank Contact Page</title>
+  <style>
+    /* General Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Arial', sans-serif;
+      color: #333;
+      line-height: 1.6;
+      background-color: #f8f9fa;
+    }
+    .container {
+      width: 80%;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    .header {
+      background-color: #004080;
+      color: #fff;
+      padding: 1rem 0;
+    }
+    .header .logo {
+      font-size: 2rem;
+      font-weight: bold;
+    }
+    .header .nav-links {
+      list-style: none;
+      display: flex;
+      justify-content: flex-end;
+      gap: 1rem;
+    }
+    .header .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    .header .nav-links a:hover {
+      color: #ffd700;
+    }
+
+    /* Main Section */
+    .main {
+      padding: 2rem 0;
+    }
+    .contact-info h2,
+    .contact-form h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #004080;
+      text-align: center;
+    }
+    .contact-info p {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 1.1rem;
+    }
+    .info-cards {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 2rem;
+    }
+    .info-card {
+      background: #fff;
+      padding: 1.5rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s;
+    }
+    .info-card:hover {
+      transform: translateY(-5px);
+    }
+    .info-card .icon {
+      font-size: 2rem;
+      color: #004080;
+      margin-bottom: 1rem;
+    }
+    .info-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+    .info-card p {
+      font-size: 1rem;
+    }
+
+    /* Form Section */
+    .contact-form {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .contact-form form {
+      display: flex;
+      flex-direction: column;
+    }
+    .form-group {
+      margin-bottom: 1rem;
+    }
+    .form-group label {
+      font-size: 1rem;
+      color: #555;
+    }
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+    .form-group textarea {
+      resize: none;
+    }
+    .btn {
+      background-color: #004080;
+      color: #fff;
+      padding: 0.8rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .btn:hover {
+      background-color: #003060;
+    }
+
+    /* Footer */
+    .footer {
+      background-color: #004080;
+      color: #fff;
+      text-align: center;
+      padding: 1rem 0;
+      margin-top: 2rem;
+    }
+  </style>
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <h1 class="logo">Change this name BOISSS</h1>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">About Us</a></li>
+
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main class="main">
+    <div class="container">
+      <section class="contact-info">
+        <h2>Contact Us</h2>
+        <p>Reach out to us for any queries or assistance. We're here to help!</p>
+        <div class="info-cards">
+          <div class="info-card">
+            <i class="icon fa fa-map-marker"></i>
+            <h3>Head Office</h3>
+            <p>123 Grand Avenue, Financial City, NY 10001</p>
+          </div>
+          <div class="info-card">
+            <i class="icon fa fa-phone"></i>
+            <h3>Phone</h3>
+            <p>+1 800 123 4567</p>
+          </div>
+          <div class="info-card">
+            <i class="icon fa fa-envelope"></i>
+            <h3>Email</h3>
+            <p>support@grandbank.com</p>
+          </div>
+        </div>
+      </section>
+      <section class="contact-form">
+        <h2>Send Us a Message</h2>
+        <form action="#" method="post">
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" placeholder="Your Full Name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Your Email Address" required>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Your Message" rows="6" required></textarea>
+          </div>
+          <button type="submit" class="btn">Send Message</button>
+        </form>
+      </section>
+    </div>
+  </main>
+  <footer class="footer">
+    <div class="container">
+      <p>© 2024 Grand Bank. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
