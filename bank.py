@@ -106,6 +106,19 @@ def validateLogin():
     
     if user:
         flash("Login Successful",'success')
+
+        #creating session 
+        session["user"] = user 
+
+        connection = get_db_connection()
+        cursor = connection.cursor(dictionary=True)
+
+        cursor.execute("select balance from account where user_id = %s",(user['user_id'],))
+        bal = cursor.fetchone() 
+        if bal:
+         session["user"] = {**user, 'balance': bal['balance']}
+
+
         return redirect("/dashboard")
     else:
         flash("Invalid credentials, please try again", 'error')
@@ -208,7 +221,9 @@ def dashboard():
 
 def deposit():
 
+    print(session)  # Check the contents of the session
     user_data = session.get('user')
+    print(user_data)
 
     if user_data:
 
@@ -250,7 +265,7 @@ def deposit():
 
             return redirect(url_for('dashboard'))
 
-        return render_template("deposit.html")
+        return render_template("deposit.html",user_data=user_data)
 
     else:
 
