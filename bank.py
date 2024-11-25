@@ -35,42 +35,36 @@ def renderRegister():
     return render_template("register.html")
 
 
-
-# @app.route('/loginValidate',methods=['POST'])
-# def validateLogin():
-#     email=request.form['email']
-#     password=request.form['password']
-
-#     if not email or not password:
-#         flash("Please Enter email and password both",'error')
-#         return redirect("/login")
-    
-#     user = check_credentials(email, password)
-    
-#     if user:
-#         flash("Login Successful",'success')
-#         return redirect("/dashboard")
-#     else:
-#         flash("Invalid credentials, please try again", 'error')
-#         return redirect("/")
-
-
-@app.route('/registeringUser',methods=['POST'])
+@app.route('/registerUser',methods=['POST','GET'])
 def getDataFromForm():   
-    fn = request.form['firstname']
-    ln = request.form['lastname']
+    fn = request.form['fullname']
+    
     email = request.form['email']
     aadhar = request.form['aadhar']
     password = request.form['password']
+    phone = request.form['phone_number']
     address = request.form['address']
+    pan = request.form['pan']
 
+    print("is db working ?")
     conn = get_db_connection()
-
+    print("yes con is made ")
+    
     cursor = conn.cursor()
-    cursor.execute("Insert into users   ")
-
-
-    return ":"
+    stmt = "INSERT INTO users (full_name, email,pass,phone,address,aadhar,pan) VALUES (%s, %s, %s, %s, %s, %s,%s)"
+    values = (fn, email,password,phone,address, aadhar,pan)
+    try:
+        print("hiiiiii")
+        cursor.execute(stmt, values)
+        print("helllooo")
+        conn.commit()  
+        return redirect('/login')  
+    except Exception as e:
+        print(f"Error: {e}")
+        return redirect('/register')  
+    finally:
+        cursor.close()
+        conn.close()
 
 
 #----------------------------------------------------------------------------------------------------------------------------------------
@@ -81,7 +75,6 @@ def getDataFromForm():
 
 
 @app.route('/login')
-
 def renderLogin():
     return render_template("login.html")
 
@@ -117,6 +110,27 @@ def validateLogin():
     else:
         flash("Invalid credentials, please try again", 'error')
         return redirect("/")
+    
+
+
+# @app.route('/loginValidate',methods=['POST'])
+# def validateLogin():
+#     email=request.form['email']
+#     password=request.form['password']
+
+#     if not email or not password:
+#         flash("Please Enter email and password both",'error')
+#         return redirect("/login")
+    
+#     user = check_credentials(email, password)
+    
+#     if user:
+#         flash("Login Successful",'success')
+#         return redirect("/dashboard")
+#     else:
+#         flash("Invalid credentials, please try again", 'error')
+#         return redirect("/")
+
 
 #-------------------------------------------------------------------------------------------------------------------------------------------------
     
@@ -135,6 +149,9 @@ def renderContact():
 def renderService():
     return render_template("services.html")
 
+@app.route('/support')
+def renderSupport():
+    return render_template("support.html")
 
 
 #-----------------Main-----------------

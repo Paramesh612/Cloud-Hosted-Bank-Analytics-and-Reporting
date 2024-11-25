@@ -3,12 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bank Deposit</title>
+  <title>Deposit - Bank App</title>
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <style>
     body {
-      background-color: #007bff; /* Blue theme */
+      background-color: #007bff; /* Blue background */
       color: white;
+      font-family: Arial, sans-serif;
     }
     .card {
       border: none;
@@ -22,66 +23,81 @@
     .btn-primary {
       background-color: #0056b3;
       border: none;
+      transition: all 0.3s ease;
     }
     .btn-primary:hover {
       background-color: #004080;
+      transform: scale(1.05);
     }
-    .transaction-list {
-      background-color: #e9ecef;
-      color: #343a40;
-      border-radius: 10px;
-      padding: 15px;
-      max-height: 200px;
-      overflow-y: auto;
+    .form-control {
+      border-radius: 5px;
+    }
+    .alert {
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+    .footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #0056b3;
+      color: white;
+      margin-top: 2rem;
     }
   </style>
 </head>
 <body>
-
-  <!-- Navbar with username -->
+  <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark">
     <a class="navbar-brand" href="#">Bank App</a>
     <div class="ml-auto">
-      <span class="navbar-text">Hello, <strong>Username</strong>!</span>
+      <!-- Display logged-in user's username -->
+      <span class="navbar-text">Hello, <strong>{{ user_data['username'] }}</strong>!</span>
     </div>
   </nav>
 
-  <!-- Container for main content -->
+  <!-- Main Container -->
   <div class="container mt-5">
     <div class="row justify-content-center">
-      <!-- Account Balance & Deposit Form -->
+      <!-- Deposit Form Card -->
       <div class="col-md-6">
-        <div class="card p-4 mb-4">
-          <h3 class="text-center mb-4" style="color: #0056b3;">Bank Deposit</h3>
-          <!-- Account Balance -->
+        <div class="card p-4">
+          <h3 class="text-center mb-4" style="color: #0056b3;">Deposit Funds</h3>
+          <!-- Display Account Balance -->
           <div class="alert alert-info text-center">
-            Current Balance: <strong>$5,000.00</strong>
+            Current Balance: <strong>${{ user_data['balance'] }}</strong>
           </div>
           <!-- Deposit Form -->
-          <form>
-            <div class="form-group">
-              <label for="accountNumber">Account Number</label>
-              <input type="text" class="form-control" id="accountNumber" placeholder="Enter your account number" required>
-            </div>
+          <form method="POST" action="{{ url_for('deposit') }}">
+            <!-- CSRF Token (if required) -->
             <div class="form-group">
               <label for="depositAmount">Deposit Amount</label>
-              <input type="number" class="form-control" id="depositAmount" placeholder="Enter amount" required>
+              <input 
+                type="number" 
+                class="form-control" 
+                id="depositAmount" 
+                name="deposit_amount" 
+                placeholder="Enter amount" 
+                min="1" 
+                required>
             </div>
             <div class="form-group">
               <label for="accountType">Account Type</label>
-              <select class="form-control" id="accountType">
-                <option>Savings</option>
-                <option>Checking</option>
+              <select class="form-control" id="accountType" name="account_type">
+                <option value="Savings">Savings</option>
+                <option value="Checking">Checking</option>
               </select>
             </div>
             <button type="submit" class="btn btn-primary btn-block mt-4">Deposit</button>
           </form>
         </div>
       </div>
-
-    
-      
+    </div>
   </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2024 Bank App. All Rights Reserved.</p>
+  </footer>
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
