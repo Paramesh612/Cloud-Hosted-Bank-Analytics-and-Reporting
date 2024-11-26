@@ -174,8 +174,6 @@ def renderHome():
 
 
 
-
-
 @app.route("/test-db-connection")
 def test_db_connection():
     try:
@@ -189,7 +187,7 @@ def test_db_connection():
     except mysql.connector.Error as err:
         return f"Error: {err}"
 
-    
+#-----------dashboard---------------------------------
 @app.route("/dashboard")
 def dashboard():
     return render_template('dashboard_old.html')
@@ -216,6 +214,7 @@ def dashboard():
           return redirect("/login")
 
 
+#------------deposit------------------
 
 @app.route("/deposit", methods=['post', 'get'])
 
@@ -369,7 +368,7 @@ def transfer():
     
 #----- balance -----------------------
     
-@app.route("\balance")
+@app.route("/balance")
 def renderBalance():
     user_data = session['user']
     return render_template('balance.html',user_data = user_data)

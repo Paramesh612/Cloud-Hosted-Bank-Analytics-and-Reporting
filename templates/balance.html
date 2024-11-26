@@ -144,15 +144,15 @@
 
   <!-- Navigation Buttons -->
   <div style="display: flex; justify-content: space-between; padding: 20px;">
-    <a href="{{ url_for('dashboard') }}" class="btn">Home</a>
-    <a href="{{ url_for('statement') }}" class="btn">View Statement</a>
+    <a href="/dashboard" class="btn">Home</a>
+    <a href="/statement" class="btn">View Statement</a>
   </div>
 
   <!-- Balance Container -->
   <div class="container">
     <div class="balance-box">
       <h2>Your Balance</h2>
-      <p>${{ balance }}</p>
+      <p>{{ user_data['balance'] }}</p>
     </div>
   </div>
 
