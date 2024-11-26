@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transfer Funds</title>
+  <style>
+    /* General Styling */
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+      color: #2c3e50;
+      overflow-x: hidden;
+    }
+
+    h1, h2 {
+      text-align: center;
+      margin: 0;
+      font-weight: bold;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      margin-top: 20px;
+      color: #1565c0;
+      animation: fadeIn 1.5s ease;
+    }
+
+    h2 {
+      font-size: 1.3rem;
+      margin-bottom: 30px;
+      color: #0d47a1;
+      animation: fadeIn 1.5s ease 0.5s;
+    }
+
+    /* Form Container */
+    .container {
+      width: 80%;
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+      background: #ffffff;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      animation: slideIn 1s ease;
+    }
+
+    /* Form Elements */
+    label {
+      font-size: 1rem;
+      margin-bottom: 5px;
+      color: #1565c0;
+    }
+
+    input[type="text"], input[type="number"], textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border: 1px solid #bbdefb;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      background-color: #1565c0;
+      border: none;
+      color: white;
+      font-size: 1.2rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #0d47a1;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideIn {
+      0% {
+        opacity: 0;
+        transform: translateX(-100%);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Transfer Funds</h1>
+  <h2>Welcome, {{ user_data['full_name'] }} | User ID: {{ user_data['user_id'] }}</h2>
+
+  <!-- Transfer Form -->
+  <div class="container">
+    <form method="POST" action="/transfer">
+      <label for="recipient_id">Recipient User ID:</label>
+      <input type="text" id="recipient_id" name="recipient_id" placeholder="Enter recipient's User ID" required>
+
+      <label for="amount">Amount to Transfer:</label>
+      <input type="number" id="amount" name="amount" placeholder="Enter amount" required min="1">
+
+      <label for="description">Description (optional):</label>
+      <textarea id="description" name="description" rows="4" placeholder="Enter description (e.g., Gift, Payment, etc.)"></textarea>
+
+      <button type="submit">Transfer</button>
+    </form>
+  </div>
+</body>
+</html>

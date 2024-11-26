@@ -113,7 +113,7 @@ def validateLogin():
         connection = get_db_connection()
         cursor = connection.cursor(dictionary=True)
 
-        cursor.execute("select balance from account where user_id = %s",(user['user_id'],))
+        cursor.execute("select balance from accounts where user_id = %s",(user['user_id'],))
         bal = cursor.fetchone() 
         if bal:
          session["user"] = {**user, 'balance': bal['balance']}
@@ -215,7 +215,7 @@ def dashboard():
     else:
           return redirect("/login")
 
-   
+
 
 @app.route("/deposit", methods=['post', 'get'])
 
@@ -233,6 +233,8 @@ def deposit():
 
             account_type = request.form['account_type']
 
+            descrip = request.form['desc']
+
             conn = get_db_connection()
 
             cursor = conn.cursor()
@@ -245,7 +247,7 @@ def deposit():
 
                 cursor.execute("INSERT INTO accounts (user_id, balance, account_type) VALUES (%s, %s, %s)", (user_data['user_id'], amount, account_type))
 
-                cursor.execute("INSERT INTO account_statements (user_id, transaction_type,transaction_amount, transaction_date) VALUES (%s, 'Credit', %s, %s)", (user_data['user_id'], amount, datetime.now()))
+                cursor.execute("INSERT INTO account_statements (user_id, transaction_type,transaction_amount, transaction_date,description) VALUES (%s, 'Credit', %s, %s,%s)", (user_data['user_id'], amount, datetime.now(),descrip))
 
             else:
 
@@ -253,9 +255,14 @@ def deposit():
 
                 cursor.execute("UPDATE accounts SET balance = balance + %s WHERE user_id = %s", (amount, user_data['user_id']))
 
-                cursor.execute("INSERT INTO account_statements (user_id, transaction_type,transaction_amount,  transaction_date) VALUES (%s, 'Credit', %s, %s)", (user_data['user_id'], amount, datetime.now()))
+                cursor.execute("INSERT INTO account_statements (user_id, transaction_type,transaction_amount,  transaction_date,description) VALUES (%s, 'Credit', %s, %s,%s)", (user_data['user_id'], amount, datetime.now(),descrip))
 
             conn.commit()
+
+            cursor.execute("select balance from accounts where user_id = %s",(user_data['user_id'],))
+            balancefetch = cursor.fetchone() 
+            session['user'] = {**user_data, 'balance' : balancefetch[0]}
+            print(session['user'])
 
             cursor.close()
 
@@ -270,7 +277,102 @@ def deposit():
     else:
 
         return redirect(url_for('login'))
+
+
+#-----------------------Statement----------------------
     
+@app.route('/statement' , methods=['POST','GET'])
+def renderStatement():
+    
+    user_data = session['user']
+
+    if user_data : 
+        conn = get_db_connection() 
+        print("connection made")
+        cursor = conn.cursor() 
+        cursor.execute("Select * from account_statements where user_id = %s",(user_data['user_id'],))
+        statements = cursor.fetchall() 
+        print(statements)
+        cursor.close() 
+        conn.close()
+    else:
+        return redirect(url_for('login'))
+
+    return render_template("statements.html",user_data = user_data,statements = statements)
+
+
+#---------------------------transfer---------------------
+
+@app.route("/transfer", methods=['post', 'get' ])
+def transfer():
+    user_data = session.get('user')
+    if user_data:
+        if request.method == 'POST':
+            rec_id = request.form.get('recipient_id')
+            amount = request.form.get('amount')
+
+            if rec_id and amount:
+                try:
+                    amount = float (amount)
+                    conn = get_db_connection()
+                    cursor = conn.cursor()
+                    cursor.execute("SELECT user_id FROM users WHERE user_id = %s", (rec_id, ))
+                    recipient_user_id = cursor.fetchone()
+
+                    if recipient_user_id is None:
+                        flash("Recipient user not found!")
+                        return redirect(url_for('transfer'))
+
+                    # Check if the sender has sufficient balance
+                    cursor.execute("SELECT balance FROM accounts WHERE user_id = %s", (user_data['user_id'],))
+                    sender_balance = cursor.fetchone()
+
+                    if sender_balance is None:
+                        flash("Sender account not found!")
+                        return redirect(url_for('transfer'))
+
+                    sender_balance = sender_balance[0]
+
+                    if sender_balance >= amount:
+                        # sender 
+                        
+                        cursor.execute("UPDATE accounts SET balance = balance - %s WHERE user_id = %s", (amount, user_data['user_id']))
+
+                        # Update recipient's balance
+                        cursor.execute("UPDATE accounts SET balance = balance + %s WHERE user_id = %s", (amount, recipient_user_id[0]))
+
+                        # Insert a new transaction into the account_statements table
+                        desc = request.form.get('description') 
+                        cursor.execute("INSERT INTO account_statements (user_id, transaction_type, transaction_amount, transaction_date,description) VALUES (%s, 'Debit', %s, %s ,%s)", (user_data['user_id'], amount, datetime.now( ),desc) )
+                        cursor.execute("INSERT INTO account_statements (user_id, transaction_type, transaction_amount, transaction_date,description) VALUES (%s, 'Credit', %s, %s,%s)", (recipient_user_id[0], amount, datetime.now(),desc))
+
+                        session['user'] = {**user_data , 'balance' : user_data['balance'] - amount}
+
+                        conn.commit()
+                        cursor.close()
+                        conn.close()
+                        flash("Funds transferred successfully!")
+                        return redirect(url_for('dashboard'))
+                    else:
+                        flash("Insufficient balance!")
+                        return redirect(url_for('transfer'))
+                except ValueError:
+                    flash("Invalid transfer amount!")
+                    return redirect(url_for('transfer'))
+
+            else:
+                flash("Please fill in all fields!")
+                return redirect(url_for('transfer'))
+        return render_template("transfer.html",user_data=user_data)
+    else:
+        return redirect(url_for('login'))
+    
+#----- balance -----------------------
+    
+@app.route("\balance")
+def renderBalance():
+    user_data = session['user']
+    return render_template('balance.html',user_data = user_data)
 
 if __name__=='__main__':
     app.run(debug=True) 
