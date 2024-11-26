@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Finances &mdash; Website Template by Colorlib</title>
+    <title>Register - Finances</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet" />
@@ -11,19 +11,98 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/style.css') }}" />
     <script src="{{ url_for('static', filename='assets/js/jquery.min.js') }}"></script>
     <script src="{{ url_for('static', filename='assets/js/bootstrap.min.js') }}"></script>
+    <style>
+        /* Body and Container Styling */
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f0f4f8;
+            padding-top: 50px;
+        }
+
+        .form-container {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            max-width: 600px;
+            margin: auto;
+        }
+
+        .form-container h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #1565c0;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            font-size: 1.1rem;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            font-size: 1rem;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #1565c0;
+            outline: none;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 15px;
+            font-size: 1.1rem;
+            background-color: #1565c0;
+            border: none;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #0d47a1;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .form-container {
+                padding: 20px;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <div class="row">
-        <div class="col-md-12 mb-5">
-            <form action="/registerUser" class="p-5 bg-white" method="POST">
-                <h2 class="h4 text-black mb-5">Register</h2>
+
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6 form-container">
+            <form action="/registerUser" method="POST">
+                <h2 class="text-black mb-5">Register</h2>
 
                 <!-- Full Name -->
                 <div class="row form-group">
                     <div class="col-md-12">
                         <label class="text-black" for="fullname">Full Name</label>
-                        <input type="text" id="fullname" name="fullname" class="form-control" required />
+                        <input type="text" id="fullname" name="fullname" class="form-control" placeholder="Enter Full Name" required />
                     </div>
                 </div>
 
@@ -31,7 +110,7 @@
                 <div class="row form-group">
                     <div class="col-md-12">
                         <label class="text-black" for="email">Email</label>
-                        <input type="email" id="email" name="email" class="form-control" required />
+                        <input type="email" id="email" name="email" class="form-control" placeholder="Enter Email" required />
                     </div>
                 </div>
 
@@ -39,7 +118,7 @@
                 <div class="row form-group">
                     <div class="col-md-12">
                         <label class="text-black" for="phone_number">Phone Number</label>
-                        <input type="text" id="phone_number" name="phone_number" class="form-control" required />
+                        <input type="text" id="phone_number" name="phone_number" class="form-control" placeholder="Enter Phone Number" required />
                     </div>
                 </div>
 
@@ -47,7 +126,7 @@
                 <div class="row form-group">
                     <div class="col-md-12">
                         <label class="text-black" for="aadhar">Aadhar Number</label>
-                        <input type="text" id="aadhar" name="aadhar" class="form-control" required />
+                        <input type="text" id="aadhar" name="aadhar" class="form-control" placeholder="Enter Aadhar Number" required />
                     </div>
                 </div>
 
@@ -55,7 +134,7 @@
                 <div class="row form-group">
                     <div class="col-md-12">
                         <label class="text-black" for="pan">PAN</label>
-                        <input type="text" id="pan" name="pan" class="form-control" required />
+                        <input type="text" id="pan" name="pan" class="form-control" placeholder="Enter PAN Number" required />
                     </div>
                 </div>
 
@@ -63,7 +142,7 @@
                 <div class="row form-group">
                     <div class="col-md-12">
                         <label class="text-black" for="password">Password</label>
-                        <input type="password" name="password" id="password" class="form-control" required />
+                        <input type="password" name="password" id="password" class="form-control" placeholder="Enter Password" required />
                     </div>
                 </div>
 
@@ -78,12 +157,19 @@
                 <!-- Submit Button -->
                 <div class="row form-group">
                     <div class="col-md-12">
-                        <input type="submit" value="Submit" class="btn btn-primary btn-md text-white" />
+                        <input type="submit" value="Submit" class="btn" />
                     </div>
                 </div>
             </form>
+
+            <div style="display: flex; justify-content: center; align-items: center;">
+                <a href="/dashboard" class="btn" style="margin-top: 1rem; display: inline-block; padding: 14px; background-color: #1565c0; border: none; color: white; font-size: 1.2rem; border-radius: 8px; text-align: center; transition: background-color 0.3s; width: 100%;text-decoration: none;">
+                  Cancel Registration
+                </a>
+              </div>
         </div>
     </div>
+
 </body>
 
 </html>
