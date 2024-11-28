@@ -8,20 +8,19 @@ app= Flask(__name__)
 app.secret_key = "your_secret_key"
 
 # Database config #---------------------------------------------------------------------------------------------------------
-db_config = {
-    'host': 'localhost', #bank.crqmssgockvo.ap-south-1.rds.amazonaws.com
-    'user': 'root',
-    'password': '',
-    'database': 'AWS_Bank'
-}
-
 # db_config = {
-# ' host': 'bank.crqmssgockvo.ap-south-l.rds.amazonaws.com',
-# 'user': 'admin',
-# 'database':'bank',
-# 'password': 'Surya123456'
+#     'host': 'localhost', #bank.crqmssgockvo.ap-south-1.rds.amazonaws.com
+#     'user': 'root',
+#     'password': '',
+#     'database': 'AWS_Bank'
 # }
 
+db_config = {
+    'host': 'aws-bank-id.cinhykomuoh0.us-east-1.rds.amazonaws.com', #bank.crqmssgockvo.ap-south-1.rds.amazonaws.com
+    'user': 'admin',
+    'password': 'abcdefg123',
+    'database': 'aws_bank'
+}
 
 cnxpool = mysql.connector.pooling.MySQLConnectionPool(pool_name="mypool",pool_size=5,**db_config)
 
