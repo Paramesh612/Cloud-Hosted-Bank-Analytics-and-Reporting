@@ -1,125 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Deposit - Bank App</title>
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    body {
-      background-color: #007bff; /* Blue background */
-      color: white;
-      font-family: Arial, sans-serif;
-    }
-    .card {
-      border: none;
-      border-radius: 10px;
-      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
-    }
-    .navbar {
-      background-color: #0056b3;
-      border-bottom: 2px solid #004080;
-    }
-    .btn-primary {
-      background-color: #0056b3;
-      border: none;
-      transition: all 0.3s ease;
-    }
-    .btn-primary:hover {
-      background-color: #004080;
-      transform: scale(1.05);
-    }
-    .form-control {
-      border-radius: 5px;
-    }
-    .alert {
-      font-size: 1.2rem;
-      font-weight: bold;
-    }
-    .footer {
-      text-align: center;
-      padding: 1rem;
-      background-color: #0056b3;
-      color: white;
-      margin-top: 2rem;
-    }
-  </style>
-</head>
-<body>
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark">
-    <a class="navbar-brand" href="#">CHANGEEE THISSS</a>
-    <div class="ml-auto">
-      <!-- Display logged-in user's username -->
-      <span class="navbar-text">Hello, <strong>{{ user_data['full_name'] }}</strong>!</span>
-    </div>
-  </nav>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deposit - Bank App</title>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: #007bff; /* Blue background */
+        color: white;
+        font-family: Arial, sans-serif;
+      }
+      .card {
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+      }
+      .navbar {
+        background-color: #0056b3;
+        border-bottom: 2px solid #004080;
+      }
+      .btn-primary {
+        background-color: #0056b3;
+        border: none;
+        transition: all 0.3s ease;
+      }
+      .btn-primary:hover {
+        background-color: #004080;
+        transform: scale(1.05);
+      }
+      .form-control {
+        border-radius: 5px;
+      }
+      .alert {
+        font-size: 1.2rem;
+        font-weight: bold;
+      }
+      .footer {
+        text-align: center;
+        padding: 1rem;
+        background-color: #0056b3;
+        color: white;
+        margin-top: 2rem;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <a class="navbar-brand" href="#">CHANGEEE THISSS</a>
+      <div class="ml-auto">
+        <!-- Display logged-in user's username -->
+        <span class="navbar-text"
+          >Hello, <strong>{{ user_data['full_name'] }}</strong>!</span
+        >
+      </div>
+    </nav>
 
-  <!-- Main Container -->
-  <div class="container mt-5">
-    <div class="row justify-content-center">
-      <!-- Deposit Form Card -->
-      <div class="col-md-6">
-        <div class="card p-4">
-          <h3 class="text-center mb-4" style="color: #0056b3;">Deposit Funds</h3>
-          <!-- Display Account Balance -->
-          <div class="alert alert-info text-center">
-            Current Balance: <strong>${{ user_data['balance'] }}</strong>
-          </div>
-          <!-- Deposit Form -->
-          <form method="POST" action="{{ url_for('deposit') }}">
-            <!-- CSRF Token (if required) -->
-            <div class="form-group">
-              <label for="depositAmount">Deposit Amount</label>
-              <input 
-                type="number" 
-                class="form-control" 
-                id="depositAmount" 
-                name="deposit_amount" 
-                placeholder="Enter amount" 
-                min="1" 
-                required>
+    <!-- Main Container -->
+    <div class="container mt-5">
+      <div class="row justify-content-center">
+        <!-- Deposit Form Card -->
+        <div class="col-md-6">
+          <div class="card p-4">
+            <h3 class="text-center mb-4" style="color: #0056b3">
+              Deposit Funds
+            </h3>
+            <!-- Display Account Balance -->
+            <div class="alert alert-info text-center">
+              Savings Balance: <strong>${{ user_data['savbalance'] }}</strong>
             </div>
-            <div class="form-group">
-              <label for="accountType">Account Type</label>
-              <select class="form-control" id="accountType" name="account_type">
-                <option value="Savings">Savings</option>
-                <option value="Checking">Checking</option>
-              </select>
+            <div class="alert alert-info text-center">
+              Current Balance: <strong>${{ user_data['curbalance'] }}</strong>
             </div>
+            <!-- Deposit Form -->
+            <form method="POST" action="{{ url_for('deposit') }}">
+              <!-- CSRF Token (if required) -->
+              <div class="form-group">
+                <label for="depositAmount">Deposit Amount</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="depositAmount"
+                  name="deposit_amount"
+                  placeholder="Enter amount"
+                  min="1"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="accountType">Account Type</label>
+                <select
+                  class="form-control"
+                  id="accountType"
+                  name="account_type"
+                >
+                  <option value="Savings">Savings</option>
+                  <option value="Business">Business</option>
+                </select>
+              </div>
 
-            <div class="form-group">
-              <label for="description">Description</label>
-              <input 
-                type="text" 
-                class="form-control" 
-                id="depositDescription" 
-                name="desc" 
-                placeholder="Description....." 
-                required>
+              <div class="form-group">
+                <label for="description">Description</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="depositDescription"
+                  name="desc"
+                  placeholder="Description....."
+                  required
+                />
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-block mt-4">
+                Deposit
+              </button>
+            </form>
+
+            <div
+              style="
+                display: flex;
+                justify-content: center;
+                align-items: center;
+              "
+            >
+              <a
+                href="/dashboard"
+                class="btn"
+                style="
+                  margin-top: 1rem;
+                  display: inline-block;
+                  padding: 14px;
+                  background-color: #1565c0;
+                  border: none;
+                  color: white;
+                  font-size: 1.2rem;
+                  border-radius: 8px;
+                  text-align: center;
+                  transition: background-color 0.3s;
+                  width: 100%;
+                  text-decoration: none;
+                "
+              >
+                Go to Dashboard
+              </a>
             </div>
-
-            
-            <button type="submit" class="btn btn-primary btn-block mt-4">Deposit</button>
-          </form>
-
-          <div style="display: flex; justify-content: center; align-items: center;">
-            <a href="/dashboard" class="btn" style="margin-top: 1rem; display: inline-block; padding: 14px; background-color: #1565c0; border: none; color: white; font-size: 1.2rem; border-radius: 8px; text-align: center; transition: background-color 0.3s; width: 100%;text-decoration: none;">
-              Go to Dashboard
-            </a>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <p>&copy; 2024 Bank App. All Rights Reserved.</p>
-  </footer>
+    <!-- Footer -->
+    <footer class="footer">
+      <p>&copy; 2024 Bank App. All Rights Reserved.</p>
+    </footer>
 
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
 </html>

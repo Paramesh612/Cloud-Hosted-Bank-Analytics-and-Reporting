@@ -4,3 +4,6 @@ db_confxg = {
 'database':'bank',
 ' password': 'Surya123456'
 }
+
+def hello():
+    print("HEllo")

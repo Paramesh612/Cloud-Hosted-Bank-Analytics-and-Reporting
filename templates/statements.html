@@ -1,162 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bank Statement</title>
-  <style>
-    /* General Styling */
-    body {
-      font-family: 'Arial', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(135deg, #e3f2fd, #bbdefb);
-      color: #2c3e50;
-      overflow-x: hidden;
-    }
-
-    h1, h2 {
-      text-align: center;
-      margin: 0;
-      font-weight: bold;
-    }
-
-    h1 {
-      font-size: 2.8rem;
-      margin-top: 20px;
-      color: #1565c0;
-      animation: fadeIn 1.5s ease;
-    }
-
-    h2 {
-      font-size: 1.3rem;
-      margin-bottom: 30px;
-      color: #0d47a1;
-      animation: fadeIn 1.5s ease 0.5s;
-    }
-
-    /* Container Styling */
-    .container {
-      width: 90%;
-      max-width: 1000px;
-      margin: auto;
-      padding: 20px;
-      background: #ffffff;
-      border-radius: 15px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-      animation: slideIn 1s ease;
-    }
-
-    /* Table Styling */
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 20px 0;
-    }
-
-    th, td {
-      text-align: left;
-      padding: 12px 15px;
-      color: #2c3e50;
-      font-size: 1rem;
-    }
-
-    th {
-      background: #1565c0;
-      color: #ffffff;
-      font-size: 1rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      border-bottom: 3px solid #0d47a1;
-    }
-
-    td {
-      background: #e3f2fd;
-      border-bottom: 1px solid #bbdefb;
-    }
-
-    /* Hover Effects */
-    tr:hover td {
-      background: #bbdefb;
-      transform: scale(1.02);
-      transition: all 0.3s ease-in-out;
-    }
-
-    /* Animations */
-    @keyframes fadeIn {
-      0% {
-        opacity: 0;
-        transform: translateY(-20px);
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bank Statement</title>
+    <style>
+      /* General Styling */
+      body {
+        font-family: "Arial", sans-serif;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+        color: #2c3e50;
+        overflow-x: hidden;
       }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
 
-    @keyframes slideIn {
-      0% {
-        opacity: 0;
-        transform: translateX(-100%);
+      h1,
+      h2 {
+        text-align: center;
+        margin: 0;
+        font-weight: bold;
       }
-      100% {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    }
 
-    /* Responsive Design */
-    @media screen and (max-width: 768px) {
       h1 {
-        font-size: 2.2rem;
+        font-size: 2.8rem;
+        margin-top: 20px;
+        color: #1565c0;
+        animation: fadeIn 1.5s ease;
       }
 
       h2 {
+        font-size: 1.3rem;
+        margin-bottom: 30px;
+        color: #0d47a1;
+        animation: fadeIn 1.5s ease 0.5s;
+      }
+
+      /* Container Styling */
+      .container {
+        width: 90%;
+        max-width: 1000px;
+        margin: auto;
+        padding: 20px;
+        background: #ffffff;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        animation: slideIn 1s ease;
+      }
+
+      /* Table Styling */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+      }
+
+      th,
+      td {
+        text-align: left;
+        padding: 12px 15px;
+        color: #2c3e50;
         font-size: 1rem;
       }
 
-      th, td {
-        font-size: 0.9rem;
-        padding: 10px;
+      th {
+        background: #1565c0;
+        color: #ffffff;
+        font-size: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        border-bottom: 3px solid #0d47a1;
       }
-    }
-  </style>
-</head>
-<body>
-  <!-- Header Section -->
-  <h1>Bank Statement</h1>
-  <h2>User: <span id="username">{{ user_data['full_name']}}</span> | User ID: <span id="user-id">{{ user_data['user_id']}}</span></h2>
 
-  <!-- Table Container -->
-  <div class="container">
-    <table>
-      <thead>
-        <tr>
-          <th>Transaction Type</th>
-          <th>Amount</th>
-          <th>Date</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for statement in statements %}
-        <tr>
-          <td>{{statement[1]}}</td>
-          <td>{{statement[2]}}</td>
-          <td>{{statement[3]}}</td>
-          <td>{{statement[4]}}</td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
-  </div>
+      td {
+        background: #e3f2fd;
+        border-bottom: 1px solid #bbdefb;
+      }
 
-  <div style="display: flex; justify-content: center; align-items: center;">
-    <a href="/dashboard" class="btn" style="margin-top: 1rem; display: inline-block; padding: 14px; background-color: #1565c0; border: none; color: white; font-size: 1.2rem; border-radius: 8px; text-align: center; transition: background-color 0.3s; width: 60%;text-decoration: none;">
-      Go to Dashboard
-    </a>
-  </div>
+      /* Hover Effects */
+      tr:hover td {
+        background: #bbdefb;
+        transform: scale(1.02);
+        transition: all 0.3s ease-in-out;
+      }
 
-  
-</body>
+      /* Animations */
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes slideIn {
+        0% {
+          opacity: 0;
+          transform: translateX(-100%);
+        }
+        100% {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      /* Responsive Design */
+      @media screen and (max-width: 768px) {
+        h1 {
+          font-size: 2.2rem;
+        }
+
+        h2 {
+          font-size: 1rem;
+        }
+
+        th,
+        td {
+          font-size: 0.9rem;
+          padding: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header Section -->
+    <h1>Bank Statement</h1>
+    <h2>
+      User: <span id="username">{{ user_data['full_name']}}</span> | User ID:
+      <span id="user-id">{{ user_data['user_id']}}</span>
+    </h2>
+
+    <!-- Table Container -->
+    <div class="container">
+      <table>
+        <thead>
+          <tr>
+            <th>Transaction Type</th>
+            <th>Amount</th>
+            <th>Date</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for statement in statements %}
+          <tr>
+            <td>{{statement['transaction_type']}}</td>
+            <td>{{statement['transaction_amount']}}</td>
+            <td>{{statement['transaction_date'].strftime('%d-%b-%Y')}}</td>
+            <td>{{statement['description']}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <div style="display: flex; justify-content: center; align-items: center">
+      <a
+        href="/dashboard"
+        class="btn"
+        style="
+          margin-top: 1rem;
+          display: inline-block;
+          padding: 14px;
+          background-color: #1565c0;
+          border: none;
+          color: white;
+          font-size: 1.2rem;
+          border-radius: 8px;
+          text-align: center;
+          transition: background-color 0.3s;
+          width: 60%;
+          text-decoration: none;
+        "
+      >
+        Go to Dashboard
+      </a>
+    </div>
+  </body>
 </html>

@@ -1,160 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Account Balance</title>
-  <style>
-    /* General Styling */
-    body {
-      font-family: 'Arial', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(135deg, #e0f7fa, #80deea);
-      color: #2c3e50;
-      overflow-x: hidden;
-    }
-
-    h1, h2 {
-      text-align: center;
-      margin: 0;
-      font-weight: bold;
-    }
-
-    h1 {
-      font-size: 2.5rem;
-      margin-top: 20px;
-      color: #0288d1;
-      animation: fadeIn 1.5s ease;
-    }
-
-    h2 {
-      font-size: 1.4rem;
-      margin-bottom: 30px;
-      color: #01579b;
-      animation: fadeIn 1.5s ease 0.5s;
-    }
-
-    /* Container Styling */
-    .container {
-      width: 90%;
-      max-width: 1000px;
-      margin: auto;
-      padding: 20px;
-      background: #ffffff;
-      border-radius: 15px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-      animation: slideIn 1s ease;
-    }
-
-    /* Balance Box Styling */
-    .balance-box {
-      padding: 30px;
-      background: #0288d1;
-      border-radius: 10px;
-      text-align: center;
-      color: white;
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-      margin-bottom: 20px;
-      animation: bounce 2s infinite;
-    }
-
-    .balance-box h2 {
-      font-size: 2rem;
-      margin: 0;
-    }
-
-    .balance-box p {
-      font-size: 1.3rem;
-      margin: 10px 0 0;
-    }
-
-    /* Button Styling */
-    .btn {
-      display: inline-block;
-      margin: 10px;
-      padding: 12px 25px;
-      background: #01579b;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 8px;
-      font-size: 1.1rem;
-      transition: all 0.3s ease;
-    }
-
-    .btn:hover {
-      background: #0288d1;
-      transform: scale(1.1);
-    }
-
-    /* Animations */
-    @keyframes fadeIn {
-      0% {
-        opacity: 0;
-        transform: translateY(-20px);
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Account Balance</title>
+    <style>
+      /* General Styling */
+      body {
+        font-family: "Arial", sans-serif;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(135deg, #e0f7fa, #80deea);
+        color: #2c3e50;
+        overflow-x: hidden;
       }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
 
-    @keyframes slideIn {
-      0% {
-        opacity: 0;
-        transform: translateX(-100%);
+      h1,
+      h2 {
+        text-align: center;
+        margin: 0;
+        font-weight: bold;
       }
-      100% {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    }
 
-    @keyframes bounce {
-      0%, 100% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(-15px);
-      }
-    }
-
-    /* Responsive Design */
-    @media screen and (max-width: 768px) {
       h1 {
-        font-size: 2rem;
+        font-size: 2.5rem;
+        margin-top: 20px;
+        color: #0288d1;
+        animation: fadeIn 1.5s ease;
       }
 
       h2 {
-        font-size: 1rem;
+        font-size: 1.4rem;
+        margin-bottom: 30px;
+        color: #01579b;
+        animation: fadeIn 1.5s ease 0.5s;
       }
 
+      /* Container Styling */
+      .container {
+        width: 90%;
+        max-width: 1000px;
+        margin: auto;
+        padding: 20px;
+        background: #ffffff;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        animation: slideIn 1s ease;
+      }
+
+      /* Balance Box Styling */
+      .balance-box {
+        padding: 30px;
+        background: #0288d1;
+        border-radius: 10px;
+        text-align: center;
+        color: white;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        margin-bottom: 20px;
+        animation: bounce 2s infinite;
+      }
+
+      .balance-box h2 {
+        font-size: 2rem;
+        margin: 0;
+      }
+
+      .balance-box p {
+        font-size: 1.3rem;
+        margin: 10px 0 0;
+      }
+
+      /* Button Styling */
       .btn {
-        padding: 10px 20px;
-        font-size: 1rem;
+        display: inline-block;
+        margin: 10px;
+        padding: 12px 25px;
+        background: #01579b;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 8px;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
       }
-    }
-  </style>
-</head>
-<body>
 
-  <!-- Header Section -->
-  <h1>Account Balance</h1>
-  <h2>User: <span id="username">{{ user_data['full_name'] }}</span> | User ID: <span id="user-id">{{ user_data['user_id'] }}</span></h2>
+      .btn:hover {
+        background: #0288d1;
+        transform: scale(1.1);
+      }
 
-  <!-- Navigation Buttons -->
-  <div style="display: flex; justify-content: space-between; padding: 20px;">
-    <a href="/dashboard" class="btn">Home</a>
-    <a href="/statement" class="btn">View Statement</a>
-  </div>
+      /* Animations */
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
 
-  <!-- Balance Container -->
-  <div class="container">
-    <div class="balance-box">
-      <h2>Your Balance</h2>
-      <p>{{ user_data['balance'] }}</p>
+      @keyframes slideIn {
+        0% {
+          opacity: 0;
+          transform: translateX(-100%);
+        }
+        100% {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes bounce {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-15px);
+        }
+      }
+
+      /* Responsive Design */
+      @media screen and (max-width: 768px) {
+        h1 {
+          font-size: 2rem;
+        }
+
+        h2 {
+          font-size: 1rem;
+        }
+
+        .btn {
+          padding: 10px 20px;
+          font-size: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header Section -->
+    <h1>Account Balance</h1>
+    <h2>
+      User: <span id="username">{{ user_data['full_name'] }}</span> | User ID:
+      <span id="user-id">{{ user_data['user_id'] }}</span>
+    </h2>
+
+    <!-- Navigation Buttons -->
+    <div style="display: flex; justify-content: space-between; padding: 20px">
+      <a href="/dashboard" class="btn">Home</a>
+      <a href="/statement" class="btn">View Statement</a>
     </div>
-  </div>
 
-</body>
+    <!-- Balance Container -->
+    <div class="container">
+      <div class="balance-box">
+        <h2>Savings Balance</h2>
+        <p>{{ user_data['savbalance'] }}</p>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="balance-box">
+        <h2>Current Balance</h2>
+        <p>{{ user_data['curbalance'] }}</p>
+      </div>
+    </div>
+  </body>
 </html>

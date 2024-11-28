@@ -98,9 +98,7 @@
       href="{{ url_for('static',filename='assets/css/style.css') }}"
     />
 
-
-    
-  <!-- <script src="js/jquery-3.3.1.min.js"></script>
+    <!-- <script src="js/jquery-3.3.1.min.js"></script>
   <script src="js/jquery-ui.js"></script>
   <script src="js/popper.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
@@ -112,20 +110,19 @@
   <script src="js/jquery.sticky.js"></script>
   <script src="js/isotope.pkgd.min.js"></script> -->
 
-  <script src="{{ url_for('static', filename='assets/js/jquery-ui.js') }}"></script>
-  <script src="{{ url_for('static', filename='assets/js/popper.min.js') }}"></script>
-  <script src="{{ url_for('static', filename='assets/js/bootstrap.min.js') }}"></script>
-  <script src="{{ url_for('static', filename='assets/js/owl.carousel.min.js') }}"></script>
-  <script src="{{ url_for('static', filename='assets/js/jquery.countdown.min.js') }}"></script>
-  <script src="{{ url_for('static', filename='assets/js/jquery.easing.1.3.js') }}"></script>
-  <script src="{{ url_for('static', filename='assets/js/aos.js') }}"></script>
-  <script src="{{ url_for('static', filename='assets/js/jquery.fancybox.min.js') }}"></script>
-  <script src="{{ url_for('static', filename='assets/js/jquery.sticky.js') }}"></script>
-  <script src="{{ url_for('static', filename='assets/js/isotope.pkgd.min.js') }}"></script>
-  <script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/jquery-ui.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/popper.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/owl.carousel.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/jquery.countdown.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/jquery.easing.1.3.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/aos.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/jquery.fancybox.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/jquery.sticky.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/isotope.pkgd.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
 
-  <script src="js/main.js"></script>
-
+    <script src="js/main.js"></script>
   </head>
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
     <!-- <div id="overlayer"></div> -->
@@ -154,7 +151,7 @@
             <div class="col-6 col-xl-2">
               <h1 class="mb-0 site-logo">
                 <a href="index.html" class="h2 mb-0"
-                  >Fiiiiiiinances<span class="text-primary">.</span>
+                  >Finances<span class="text-primary">.</span>
                 </a>
               </h1>
             </div>
@@ -167,14 +164,13 @@
                 <ul
                   class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block"
                 >
-                  <li><a href="#home-section" class="nav-link">Home</a></li>
+                  <li>
+                    <a href="/dashboard" class="nav-link">Dashboard</a>
+                  </li>
                   <li class="has-children">
                     <a href="#about-section" class="nav-link">About Us</a>
                     <ul class="dropdown">
                       <li><a href="#team-section" class="nav-link">Team</a></li>
-                      <li>
-                        <a href="#pricing-section" class="nav-link">Pricing</a>
-                      </li>
                       <li><a href="#faq-section" class="nav-link">FAQ</a></li>
                       <li>
                         <a href="#gallery-section" class="nav-link">Gallery</a>
@@ -189,20 +185,19 @@
                           >Testimonials</a
                         >
                       </li>
-                      <li class="has-children">
-                        <a href="#">More Links</a>
-                        <ul class="dropdown">
-                          <li><a href="#">Menu One</a></li>
-                          <li><a href="#">Menu Two</a></li>
-                          <li><a href="#">Menu Three</a></li>
-                        </ul>
-                      </li>
+                      
                     </ul>
                   </li>
 
                   <li><a href="#blog-section" class="nav-link">Blog</a></li>
                   <li>
-                    <a href="#contact-section" class="nav-link">Contact</a>
+                    <a href="/contact" class="nav-link">Contact</a>
+                  </li>
+                  <li>
+                    <a href="/login" class="nav-link">Login</a>
+                  </li>
+                  <li>
+                    <a href="/register" class="nav-link">Register</a>
                   </li>
                   <li class="social">
                     <a href="#contact-section" class="nav-link"
@@ -364,58 +359,7 @@
         </div>
       </div>
 
-      <div class="site-section" id="next">
-        <div class="container">
-          <div class="row mb-5">
-            <div
-              class="col-md-4 text-center"
-              data-aos="fade-up"
-              data-aos-delay=""
-            >
-              <img
-                src="{{ url_for('static',filename='assets/img/flaticon-svg') }}/svg/001-wallet.svg"
-                alt="Free Website Template by Free-Template.co"
-                class="img-fluid w-25 mb-4"
-              />
-              <h3 class="card-title">Money Savings</h3>
-              <p>
-                A small river named Duden flows by their place and supplies it
-                with the necessary regelialia.
-              </p>
-            </div>
-            <div
-              class="col-md-4 text-center"
-              data-aos="fade-up"
-              data-aos-delay="100"
-            >
-              <img
-                src="{{ url_for('static',filename='assets/img/flaticon-svg') }}/svg/004-cart.svg"
-                alt="Free Website Template by Free-Template.co"
-                class="img-fluid w-25 mb-4"
-              />
-              <h3 class="card-title">Online Shoppings</h3>
-              <p>
-                A small river named Duden flows by their place and supplies it
-                with the necessary regelialia.
-              </p>
-            </div>
-            <div
-              class="col-md-4 text-center"
-              data-aos="fade-up"
-              data-aos-delay="200"
-            >
-              <img
-                src="{{ url_for('static',filename='assets/img/flaticon-svg') }}/svg/006-credit-card.svg"
-                alt="Free Website Template by Free-Template.co"
-                class="img-fluid w-25 mb-4"
-              />
-              <h3 class="card-title">Credit / Debit Cards</h3>
-              <p>
-                A small river named Duden flows by their place and supplies it
-                with the necessary regelialia. ohhoooo
-              </p>
-            </div>
-          </div>
+      
 
           <div class="row">
             <div class="col-lg-6 mb-5" data-aos="fade-up" data-aos-delay="">
@@ -458,117 +402,82 @@
         <div class="container">
           <div class="row mb-5 justify-content-center">
             <div class="col-md-8 text-center">
-              <h2
-                class="section-title mb-3"
-                data-aos="fade-up"
-                data-aos-delay=""
-              >
+              <h2 class="section-title mb-3" data-aos="fade-up" data-aos-delay="">
                 Meet Team
               </h2>
               <p class="lead" data-aos="fade-up" data-aos-delay="100">
-                A small river named Duden flows by their place and supplies it
-                with the necessary regelialia.
+                A small river named Duden flows by their place and supplies it with the necessary regelialia.
               </p>
             </div>
           </div>
           <div class="row">
-            <div
-              class="col-md-6 col-lg-4 mb-4"
-              data-aos="fade-up"
-              data-aos-delay=""
-            >
+            <div class="col-md-3 col-lg-3 mb-4" data-aos="fade-up" data-aos-delay="">
               <div class="team-member">
                 <figure>
                   <ul class="social">
-                    <li>
-                      <a href="#"><span class="icon-facebook"></span></a>
-                    </li>
-                    <li>
-                      <a href="#"><span class="icon-twitter"></span></a>
-                    </li>
-                    <li>
-                      <a href="#"><span class="icon-linkedin"></span></a>
-                    </li>
-                    <li>
-                      <a href="#"><span class="icon-instagram"></span></a>
-                    </li>
+                    <li><a href="#"><span class="icon-facebook"></span></a></li>
+                    <li><a href="#"><span class="icon-twitter"></span></a></li>
+                    <li><a href="#"><span class="icon-linkedin"></span></a></li>
+                    <li><a href="#"><span class="icon-instagram"></span></a></li>
                   </ul>
-                  <img
-                    src="{{ url_for('static',filename='assets/img/person_1.jpg') }}"
-                    alt="Image"
-                    class="img-fluid"
-                  />
+                  <img src="{{ url_for('static',filename='assets/img/person_1.jpg') }}" alt="Image" class="img-fluid" />
                 </figure>
                 <div class="p-3">
-                  <h3>Kaiara Spencer</h3>
+                  <h3>Malarvannan M</h3>
                   <span class="position">Accountant</span>
                 </div>
               </div>
             </div>
-
-            <div
-              class="col-md-6 col-lg-4 mb-4"
-              data-aos="fade-up"
-              data-aos-delay="100"
-            >
+      
+            <div class="col-md-3 col-lg-3 mb-4" data-aos="fade-up" data-aos-delay="100">
               <div class="team-member">
                 <figure>
                   <ul class="social">
-                    <li>
-                      <a href="#"><span class="icon-facebook"></span></a>
-                    </li>
-                    <li>
-                      <a href="#"><span class="icon-twitter"></span></a>
-                    </li>
-                    <li>
-                      <a href="#"><span class="icon-linkedin"></span></a>
-                    </li>
-                    <li>
-                      <a href="#"><span class="icon-instagram"></span></a>
-                    </li>
+                    <li><a href="#"><span class="icon-facebook"></span></a></li>
+                    <li><a href="#"><span class="icon-twitter"></span></a></li>
+                    <li><a href="#"><span class="icon-linkedin"></span></a></li>
+                    <li><a href="#"><span class="icon-instagram"></span></a></li>
                   </ul>
-                  <img
-                    src="{{ url_for('static',filename='assets/img/person_2.jpg') }}"
-                    alt="Image"
-                    class="img-fluid"
-                  />
+                  <img src="{{ url_for('static',filename='assets/img/person_2.jpg') }}" alt="Image" class="img-fluid" />
                 </figure>
                 <div class="p-3">
-                  <h3>Dave Simpson</h3>
+                  <h3>Parameshwaran K</h3>
                   <span class="position">Bank Teller</span>
                 </div>
               </div>
             </div>
-
-            <div
-              class="col-md-6 col-lg-4 mb-4"
-              data-aos="fade-up"
-              data-aos-delay="200"
-            >
+      
+            <div class="col-md-3 col-lg-3 mb-4" data-aos="fade-up" data-aos-delay="200">
               <div class="team-member">
                 <figure>
                   <ul class="social">
-                    <li>
-                      <a href="#"><span class="icon-facebook"></span></a>
-                    </li>
-                    <li>
-                      <a href="#"><span class="icon-twitter"></span></a>
-                    </li>
-                    <li>
-                      <a href="#"><span class="icon-linkedin"></span></a>
-                    </li>
-                    <li>
-                      <a href="#"><span class="icon-instagram"></span></a>
-                    </li>
+                    <li><a href="#"><span class="icon-facebook"></span></a></li>
+                    <li><a href="#"><span class="icon-twitter"></span></a></li>
+                    <li><a href="#"><span class="icon-linkedin"></span></a></li>
+                    <li><a href="#"><span class="icon-instagram"></span></a></li>
                   </ul>
-                  <img
-                    src="{{ url_for('static',filename='assets/img/person_3.jpg') }}"
-                    alt="Image"
-                    class="img-fluid"
-                  />
+                  <img src="{{ url_for('static',filename='assets/img/person_3.jpg') }}" alt="Image" class="img-fluid" />
                 </figure>
                 <div class="p-3">
-                  <h3>Ben Thompson</h3>
+                  <h3>Praneeth S</h3>
+                  <span class="position">Bank Teller</span>
+                </div>
+              </div>
+            </div>
+      
+            <div class="col-md-3 col-lg-3 mb-4" data-aos="fade-up" data-aos-delay="300">
+              <div class="team-member">
+                <figure>
+                  <ul class="social">
+                    <li><a href="#"><span class="icon-facebook"></span></a></li>
+                    <li><a href="#"><span class="icon-twitter"></span></a></li>
+                    <li><a href="#"><span class="icon-linkedin"></span></a></li>
+                    <li><a href="#"><span class="icon-instagram"></span></a></li>
+                  </ul>
+                  <img src="{{ url_for('static',filename='assets/img/person_3.jpg') }}" alt="Image" class="img-fluid" />
+                </figure>
+                <div class="p-3">
+                  <h3>Bose B</h3>
                   <span class="position">Bank Teller</span>
                 </div>
               </div>
@@ -576,7 +485,7 @@
           </div>
         </div>
       </section>
-
+      
       <section class="site-section" id="gallery-section" data-aos="fade">
         <div class="container">
           <div class="row mb-3">
@@ -843,10 +752,7 @@
         </div>
       </section>
 
-      <section
-        class="site-section border-bottom bg-light"
-        id="services-section"
-      >
+      <section class="site-section border-bottom bg-light" id="services-section">
         <div class="container">
           <div class="row mb-5">
             <div class="col-12 text-center" data-aos="fade">
@@ -873,11 +779,7 @@
                 </div>
               </div>
             </div>
-            <div
-              class="col-md-6 col-lg-4 mb-4 mb-lg-4"
-              data-aos="fade-up"
-              data-aos-delay="100"
-            >
+            <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="100">
               <div class="unit-4">
                 <div class="unit-4-icon">
                   <img
@@ -896,11 +798,7 @@
                 </div>
               </div>
             </div>
-            <div
-              class="col-md-6 col-lg-4 mb-4 mb-lg-4"
-              data-aos="fade-up"
-              data-aos-delay="200"
-            >
+            <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="200">
               <div class="unit-4">
                 <div class="unit-4-icon">
                   <img
@@ -919,80 +817,19 @@
                 </div>
               </div>
             </div>
-
-            <div
-              class="col-md-6 col-lg-4 mb-4 mb-lg-4"
-              data-aos="fade-up"
-              data-aos-delay=""
-            >
-              <div class="unit-4">
-                <div class="unit-4-icon">
-                  <img
-                    src="{{ url_for('static',filename='assets/img/flaticon-svg') }}/svg/003-notes.svg"
-                    alt="Free Website Template by Free-Template.co"
-                    class="img-fluid w-25 mb-4"
-                  />
-                </div>
-                <div>
-                  <h3>Insurance Consulting</h3>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Mollitia labore suscipit distinctio inventore doloribus
-                    deserunt!
-                  </p>
-                  <p><a href="#">Learn More</a></p>
-                </div>
-              </div>
-            </div>
-            <div
-              class="col-md-6 col-lg-4 mb-4 mb-lg-4"
-              data-aos="fade-up"
-              data-aos-delay="100"
-            >
-              <div class="unit-4">
-                <div class="unit-4-icon">
-                  <img
-                    src="{{ url_for('static',filename='assets/img/flaticon-svg') }}/svg/004-cart.svg"
-                    alt="Free Website Template by Free-Template.co"
-                    class="img-fluid w-25 mb-4"
-                  />
-                </div>
-                <div>
-                  <h3>Financial Investment</h3>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Cumque odio voluptatibus repellat hic officia quibusdam!
-                  </p>
-                  <p><a href="#">Learn More</a></p>
-                </div>
-              </div>
-            </div>
-            <div
-              class="col-md-6 col-lg-4 mb-4 mb-lg-4"
-              data-aos="fade-up"
-              data-aos-delay="200"
-            >
-              <div class="unit-4">
-                <div class="unit-4-icon">
-                  <img
-                    src="{{ url_for('static',filename='assets/img/flaticon-svg') }}/svg/005-megaphone.svg"
-                    alt="Free Website Template by Free-Template.co"
-                    class="img-fluid w-25 mb-4"
-                  />
-                </div>
-                <div>
-                  <h3>Financial Management</h3>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. In,
-                    iusto eaque velit saepe nobis ipsa?
-                  </p>
-                  <p><a href="#">Learn More</a></p>
-                </div>
-              </div>
+          </div>
+      
+          <!-- Centered Services Button -->
+          <div class="row justify-content-center">
+            <div class="col-12 text-center" data-aos="fade-up" data-aos-delay="100">
+              <p>
+                <a href="/services" target="_blank" class="btn btn-primary mb-2">Services</a>
+              </p>
             </div>
           </div>
         </div>
       </section>
+      
 
       <section
         class="site-section testimonial-wrap"
@@ -1107,82 +944,6 @@
 
       <section class="site-section bg-light" id="pricing-section">
         <div class="container">
-          <div class="row mb-5">
-            <div class="col-12 text-center" data-aos="fade-up">
-              <h2 class="section-title mb-3">Pricing</h2>
-            </div>
-          </div>
-          <div class="row mb-5">
-            <div
-              class="col-md-6 mb-4 mb-lg-0 col-lg-4"
-              data-aos="fade-up"
-              data-aos-delay=""
-            >
-              <div class="pricing">
-                <h3 class="text-center text-black">Basic</h3>
-                <div class="price text-center mb-4">
-                  <span><span>$47</span> / year</span>
-                </div>
-                <ul class="list-unstyled ul-check success mb-5">
-                  <li>Officia quaerat eaque neque</li>
-                  <li>Possimus aut consequuntur incidunt</li>
-                  <li class="remove">Lorem ipsum dolor sit amet</li>
-                  <li class="remove">Consectetur adipisicing elit</li>
-                  <li class="remove">Dolorum esse odio quas architecto sint</li>
-                </ul>
-                <p class="text-center">
-                  <a href="#" class="btn btn-secondary">Buy Now</a>
-                </p>
-              </div>
-            </div>
-
-            <div
-              class="col-md-6 mb-4 mb-lg-0 col-lg-4 pricing-popular"
-              data-aos="fade-up"
-              data-aos-delay="100"
-            >
-              <div class="pricing">
-                <h3 class="text-center text-black">Premium</h3>
-                <div class="price text-center mb-4">
-                  <span><span>$200</span> / year</span>
-                </div>
-                <ul class="list-unstyled ul-check success mb-5">
-                  <li>Officia quaerat eaque neque</li>
-                  <li>Possimus aut consequuntur incidunt</li>
-                  <li>Lorem ipsum dolor sit amet</li>
-                  <li>Consectetur adipisicing elit</li>
-                  <li class="remove">Dolorum esse odio quas architecto sint</li>
-                </ul>
-                <p class="text-center">
-                  <a href="#" class="btn btn-primary">Buy Now</a>
-                </p>
-              </div>
-            </div>
-
-            <div
-              class="col-md-6 mb-4 mb-lg-0 col-lg-4"
-              data-aos="fade-up"
-              data-aos-delay="200"
-            >
-              <div class="pricing">
-                <h3 class="text-center text-black">Professional</h3>
-                <div class="price text-center mb-4">
-                  <span><span>$750</span> / year</span>
-                </div>
-                <ul class="list-unstyled ul-check success mb-5">
-                  <li>Officia quaerat eaque neque</li>
-                  <li>Possimus aut consequuntur incidunt</li>
-                  <li>Lorem ipsum dolor sit amet</li>
-                  <li>Consectetur adipisicing elit</li>
-                  <li>Dolorum esse odio quas architecto sint</li>
-                </ul>
-                <p class="text-center">
-                  <a href="#" class="btn btn-secondary">Buy Now</a>
-                </p>
-              </div>
-            </div>
-          </div>
-
           <div class="row site-section" id="faq-section">
             <div class="col-12 text-center" data-aos="fade">
               <h2 class="section-title">Frequently Ask Questions</h2>
@@ -1201,75 +962,9 @@
                   the Semantics, a large language ocean.
                 </p>
               </div>
-
-              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
-                <h3 class="text-black h4 mb-4">
-                  What available is refund period?
-                </h3>
-                <p>
-                  Far far away, behind the word mountains, far from the
-                  countries Vokalia and Consonantia, there live the blind texts.
-                  Separated they live in Bookmarksgrove right at the coast of
-                  the Semantics, a large language ocean.
-                </p>
-              </div>
-
-              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
-                <h3 class="text-black h4 mb-4">
-                  Can I accept both Paypal and Stripe?
-                </h3>
-                <p>
-                  Far far away, behind the word mountains, far from the
-                  countries Vokalia and Consonantia, there live the blind texts.
-                  Separated they live in Bookmarksgrove right at the coast of
-                  the Semantics, a large language ocean.
-                </p>
-              </div>
-
-              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
-                <h3 class="text-black h4 mb-4">
-                  What available is refund period?
-                </h3>
-                <p>
-                  Far far away, behind the word mountains, far from the
-                  countries Vokalia and Consonantia, there live the blind texts.
-                  Separated they live in Bookmarksgrove right at the coast of
-                  the Semantics, a large language ocean.
-                </p>
-              </div>
             </div>
+      
             <div class="col-lg-6">
-              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
-                <h3 class="text-black h4 mb-4">Where are you from?</h3>
-                <p>
-                  Voluptatum nobis obcaecati perferendis dolor totam unde
-                  dolores quod maxime corporis officia et. Distinctio assumenda
-                  minima maiores.
-                </p>
-              </div>
-
-              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
-                <h3 class="text-black h4 mb-4">What is your opening time?</h3>
-                <p>
-                  Far far away, behind the word mountains, far from the
-                  countries Vokalia and Consonantia, there live the blind texts.
-                  Separated they live in Bookmarksgrove right at the coast of
-                  the Semantics, a large language ocean.
-                </p>
-              </div>
-
-              <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
-                <h3 class="text-black h4 mb-4">
-                  Can I accept both Paypal and Stripe?
-                </h3>
-                <p>
-                  Far far away, behind the word mountains, far from the
-                  countries Vokalia and Consonantia, there live the blind texts.
-                  Separated they live in Bookmarksgrove right at the coast of
-                  the Semantics, a large language ocean.
-                </p>
-              </div>
-
               <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
                 <h3 class="text-black h4 mb-4">
                   What available is refund period?
@@ -1283,8 +978,19 @@
               </div>
             </div>
           </div>
+      
+          <!-- Centered FAQ button -->
+          <div class="row justify-content-center">
+            <div class="col-12 text-center" data-aos="fade-up" data-aos-delay="100">
+              <p>
+                <a href="/support" target="_blank" class="btn btn-primary mb-2">FAQ</a>
+              </p>
+            </div>
+          </div>
         </div>
       </section>
+      
+      
 
       <section class="site-section" id="about-section">
         <div class="container">
@@ -1450,94 +1156,8 @@
         id="contact-section"
         data-aos="fade"
       >
-        <div class="container">
-          <div class="row mb-5">
-            <div class="col-12 text-center">
-              <h2 class="section-title mb-3">Contact Us</h2>
-            </div>
-          </div>
-          <div class="row mb-5">
-            <div class="col-md-4 text-center">
-              <p class="mb-4">
-                <span class="icon-room d-block h2 text-primary"></span>
-                <span
-                  >203 Fake St. Mountain View, San Francisco, California,
-                  USA</span
-                >
-              </p>
-            </div>
-            <div class="col-md-4 text-center">
-              <p class="mb-4">
-                <span class="icon-phone d-block h2 text-primary"></span>
-                <a href="#">+1 232 3235 324</a>
-              </p>
-            </div>
-            <div class="col-md-4 text-center">
-              <p class="mb-0">
-                <span class="icon-mail_outline d-block h2 text-primary"></span>
-                <a href="#">youremail@domain.com</a>
-              </p>
-            </div>
-          </div>
+             
 
-          <div class="row">
-            <div class="col-md-12 mb-5">
-              <form action="#" class="p-5 bg-white">
-                <h2 class="h4 text-black mb-5">Contact Form</h2>
-
-                <div class="row form-group">
-                  <div class="col-md-6 mb-3 mb-md-0">
-                    <label class="text-black" for="fname">First Name</label>
-                    <input type="text" id="fname" class="form-control" />
-                  </div>
-                  <div class="col-md-6">
-                    <label class="text-black" for="lname">Last Name</label>
-                    <input type="text" id="lname" class="form-control" />
-                  </div>
-                </div>
-
-                <div class="row form-group">
-                  <div class="col-md-12">
-                    <label class="text-black" for="email">Email</label>
-                    <input type="email" id="email" class="form-control" />
-                  </div>
-                </div>
-
-                <div class="row form-group">
-                  <div class="col-md-12">
-                    <label class="text-black" for="subject">Subject</label>
-                    <input type="subject" id="subject" class="form-control" />
-                  </div>
-                </div>
-
-                <div class="row form-group">
-                  <div class="col-md-12">
-                    <label class="text-black" for="message">Message</label>
-                    <textarea
-                      name="message"
-                      id="message"
-                      cols="30"
-                      rows="7"
-                      class="form-control"
-                      placeholder="Write your notes or questions here..."
-                    ></textarea>
-                  </div>
-                </div>
-
-                <div class="row form-group">
-                  <div class="col-md-12">
-                    <input
-                      type="submit"
-                      value="Send Message"
-                      class="btn btn-primary btn-md text-white"
-                    />
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </section>
 
       <footer class="site-footer">
         <div class="container">
