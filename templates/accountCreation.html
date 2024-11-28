@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Account Management</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #f0f4f8;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 500px;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .container:hover {
+      transform: scale(1.02);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    h1 {
+      font-size: 24px;
+      color: #333;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    label {
+      font-weight: 500;
+      color: #555;
+    }
+
+    input, select, button {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 16px;
+      outline: none;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    input:focus, select:focus {
+      border-color: #007bff;
+      box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    }
+
+    button {
+      background-color: #007bff;
+      color: white;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+      transform: translateY(-2px);
+    }
+
+    .automation {
+      font-size: 14px;
+      color: #007bff;
+      text-align: center;
+      cursor: pointer;
+      text-decoration: underline;
+      transition: color 0.3s ease;
+    }
+
+    .automation:hover {
+      color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Account Management</h1>
+    <form id="accountForm">
+      <label for="userId">User ID</label>
+      <input type="number" id="userId" name="user_id" placeholder="Enter User ID" required>
+
+      <label for="fullName">Full Name</label>
+      <input type="text" id="fullName" name="full_name" placeholder="Enter Full Name" required>
+
+      <label for="accountType">Account Type</label>
+      <select id="accountType" name="account_type" required>
+        <option value="Savings">Savings</option>
+        <option value="Business">Business</option>
+      </select>
+
+      <label for="balance">Balance</label>
+      <input type="number" id="balance" name="balance" placeholder="Enter Initial Balance" step="0.01" min="0">
+
+      <label for="accountStatus">Account Status</label>
+      <select id="accountStatus" name="account_status">
+        <option value="Active">Active</option>
+        <option value="Closed">Closed</option>
+        <option value="Frozen">Frozen</option>
+      </select>
+
+      <button type="submit">Create Account</button>
+    </form>
+    <p class="automation" onclick="fillAutomation()">Auto-Fill Sample Data</p>
+  </div>
+
+  <script>
+    // Add automation for sample data
+    function fillAutomation() {
+      document.getElementById('userId').value = 101;
+      document.getElementById('fullName').value = 'John Doe';
+      document.getElementById('accountType').value = 'Savings';
+      document.getElementById('balance').value = 5000.00;
+      document.getElementById('accountStatus').value = 'Active';
+    }
+
+    // Handle form submission
+    const form = document.getElementById('accountForm');
+    form.addEventListener('submit', function (e) {
+      e.preventDefault(); // Prevent default form submission
+
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+
+      console.log('Form Data Submitted:', data);
+
+      alert('Account created successfully!');
+      form.reset(); // Reset form fields
+    });
+  </script>
+</body>
+</html>
